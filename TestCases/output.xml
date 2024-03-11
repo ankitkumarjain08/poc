@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-02-13T00:02:48.830701" rpa="false" schemaversion="5">
+<suite id="s1" name="Create Payment Request" source="D:\RepoDATA\SurendarWork\TestCases\create_payment_request.robot">
+<kw name="Suite Setup" owner="Keywords" type="SETUP">
+<kw name="Set Screenshot Directory" owner="SeleniumLibrary">
+<arg>../Output/Screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" start="2024-02-13T00:02:49.050839" elapsed="0.009353"/>
+</kw>
+<kw name="Move Files" owner="OperatingSystem">
+<msg time="2024-02-13T00:02:49.060717" level="INFO" html="true">Moved file from '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Screenshots\AfterTextValidation.png"&gt;D:\RepoDATA\SurendarWork\Output\Screenshots\AfterTextValidation.png&lt;/a&gt;' to '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\AfterTextValidation.png"&gt;D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\AfterTextValidation.png&lt;/a&gt;'.</msg>
+<msg time="2024-02-13T00:02:49.060717" level="INFO" html="true">Moved file from '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Screenshots\BeforeLaunch.png"&gt;D:\RepoDATA\SurendarWork\Output\Screenshots\BeforeLaunch.png&lt;/a&gt;' to '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\BeforeLaunch.png"&gt;D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\BeforeLaunch.png&lt;/a&gt;'.</msg>
+<msg time="2024-02-13T00:02:49.060717" level="INFO" html="true">Moved file from '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Screenshots\BeforeOpeningPaymentRequests.png"&gt;D:\RepoDATA\SurendarWork\Output\Screenshots\BeforeOpeningPaymentRequests.png&lt;/a&gt;' to '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\BeforeOpeningPaymentRequests.png"&gt;D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\BeforeOpeningPaymentRequests.png&lt;/a&gt;'.</msg>
+<msg time="2024-02-13T00:02:49.070608" level="INFO" html="true">Moved file from '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Screenshots\Login_Page.png"&gt;D:\RepoDATA\SurendarWork\Output\Screenshots\Login_Page.png&lt;/a&gt;' to '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\Login_Page.png"&gt;D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\Login_Page.png&lt;/a&gt;'.</msg>
+<msg time="2024-02-13T00:02:49.070608" level="INFO" html="true">Moved file from '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Screenshots\Payment_Blank_page.png"&gt;D:\RepoDATA\SurendarWork\Output\Screenshots\Payment_Blank_page.png&lt;/a&gt;' to '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\Payment_Blank_page.png"&gt;D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\Payment_Blank_page.png&lt;/a&gt;'.</msg>
+<msg time="2024-02-13T00:02:49.076247" level="INFO" html="true">Moved file from '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Screenshots\Payment_Page_AfterLoad.png"&gt;D:\RepoDATA\SurendarWork\Output\Screenshots\Payment_Page_AfterLoad.png&lt;/a&gt;' to '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\Payment_Page_AfterLoad.png"&gt;D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\Payment_Page_AfterLoad.png&lt;/a&gt;'.</msg>
+<msg time="2024-02-13T00:02:49.076247" level="INFO" html="true">Moved file from '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Screenshots\selenium-screenshot-1.png"&gt;D:\RepoDATA\SurendarWork\Output\Screenshots\selenium-screenshot-1.png&lt;/a&gt;' to '&lt;a href="file://D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\selenium-screenshot-1.png"&gt;D:\RepoDATA\SurendarWork\Output\Before_Test_Logs\selenium-screenshot-1.png&lt;/a&gt;'.</msg>
+<arg>../Output/Screenshots/*.png</arg>
+<arg>../Output/Before_Test_Logs/</arg>
+<doc>Moves specified files to the target directory.</doc>
+<status status="PASS" start="2024-02-13T00:02:49.060717" elapsed="0.015530"/>
+</kw>
+<kw name="Move Files" owner="OperatingSystem">
+<arg>../Output/Logs/*.html</arg>
+<arg>../Output/Before_Test_Logs/</arg>
+<doc>Moves specified files to the target directory.</doc>
+<status status="PASS" start="2024-02-13T00:02:49.076247" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Old reports and screenshots were moved. Starting test case now</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-02-13T00:02:49.076247" elapsed="0.000000"/>
+</kw>
+<kw name="Login_Setup" owner="Keywords">
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-02-13T00:02:49.080321" level="INFO">${GlobalTimeout} = 20s</msg>
+<arg>${GlobalTimeout}</arg>
+<arg>20s</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-02-13T00:02:49.080321" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:02:49.080321" level="INFO">Opening browser 'chrome' to base url 'https://auth.uat.absaaccess.africa/'.</msg>
+<arg>https://auth.${targeted_env}.absaaccess.africa/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-02-13T00:02:49.080321" elapsed="5.187194"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-02-13T00:02:54.267515" elapsed="0.132132"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Welcome to Absa Access</arg>
+<arg>timeout=${GlobalTimeout}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:02:54.399647" elapsed="0.011115"/>
+</kw>
+<kw name="Element Should Be Enabled" owner="SeleniumLibrary">
+<arg>//a[@class = 'sol-branding__logo']</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-02-13T00:02:54.410762" elapsed="0.033352"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2024-02-13T00:02:54.444114" elapsed="0.246431"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LoginLink}</arg>
+<arg>timeout=${GlobalTimeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:02:54.690545" elapsed="0.030086"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:02:54.720631" level="INFO">Clicking link '//a[@class='btn btn-primary mb-3']'.</msg>
+<arg>${LoginLink}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:02:54.720631" elapsed="3.290244"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${Username_TextBox}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:02:58.010875" elapsed="2.639527"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:00.650402" level="INFO">Typing text 'KulipaSAUser3' into text field '//input[@id='Username']'.</msg>
+<arg>${Username_TextBox}</arg>
+<arg>${Username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:00.650402" elapsed="0.179924"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:00.831421" level="INFO">Typing text 'P@ssword123' into text field '//input[@id='Password']'.</msg>
+<arg>${Password_TextBox}</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:00.831421" elapsed="0.100752"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:00.932173" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<arg>${Login_Button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:00.932173" elapsed="3.684447"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" owner="SeleniumLibrary">
+<arg>${Loader}</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:04.616620" elapsed="3.003996"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" owner="SeleniumLibrary">
+<arg>${Spinner}</arg>
+<doc>Waits until the element ``locator`` disappears from the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:07.620616" elapsed="0.013720"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:07.640348" level="INFO">Current page does not contain element '//div[contains(@class, 'startup-center')]'.</msg>
+<arg>${Loader}</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:07.634336" elapsed="0.006012"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:07.656874" level="INFO">Current page does not contain element '//div[contains(@class, 'solar-loader')]'.</msg>
+<arg>${Spinner}</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:07.640348" elapsed="0.016526"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${Welcome_Path}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:07.656874" elapsed="2.527214"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:10.200511" level="INFO">Current page contains text 'Log out'.</msg>
+<arg>${Welcome_Logout}</arg>
+<arg>timeout=${GlobalTimeout}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.184088" elapsed="0.016423"/>
+</kw>
+<arg>Page should contain</arg>
+<arg>${Welcome_Logout}</arg>
+<arg>timeout=${GlobalTimeout}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.184088" elapsed="0.016423"/>
+</kw>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Page should contain</arg>
+<arg>${Welcome_Logout}</arg>
+<arg>timeout=${GlobalTimeout}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.184088" elapsed="0.016423"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:10.405108" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Output/Screenshots/Login_Page.png"&gt;&lt;img src="../Output/Screenshots/Login_Page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>Login_Page.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.200511" elapsed="0.204597"/>
+</kw>
+<arg>${Username}</arg>
+<arg>${Password}</arg>
+<arg>${targeted_env}</arg>
+<status status="PASS" start="2024-02-13T00:02:49.076247" elapsed="21.328861"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:02:49.050839" elapsed="21.354269"/>
+</kw>
+<test id="s1-t1" name="Launch RTCB" line="19">
+<kw name="Previous Consideration" owner="Keywords" type="SETUP">
+<kw name="Skip If" owner="BuiltIn">
+<arg>'${PREV TEST STATUS}'=='FAIL' or '${PREV TEST STATUS}'=='SKIP'</arg>
+<arg>Previous test has been failed</arg>
+<doc>Skips the rest of the current test if the ``condition`` is True.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.405108" elapsed="0.005575"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:10.405108" elapsed="0.005575"/>
+</kw>
+<kw name="Launch Real Time Crossborder Payments" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${Launch_Button}</arg>
+<arg>timeout=${GlobalTimeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.412221" elapsed="0.008506"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:10.577521" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Output/Screenshots/BeforeLaunch.png"&gt;&lt;img src="../Output/Screenshots/BeforeLaunch.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>BeforeLaunch.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.420727" elapsed="0.156794"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:10.590753" level="INFO">Current page contains text 'Hello, welcome to your Home page'.</msg>
+<arg>Hello, welcome to your Home page</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.577521" elapsed="0.013232"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:10.600788" level="INFO">Current page contains text 'Real time cross border payments'.</msg>
+<arg>Real time cross border payments</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.590753" elapsed="0.010035"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:10.618183" level="INFO">Current page contains text 'Initiate real time cross border transfers'.</msg>
+<arg>Initiate real time cross border transfers</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.605288" elapsed="0.012895"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:10.784019" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Output/Screenshots/AfterTextValidation.png"&gt;&lt;img src="../Output/Screenshots/AfterTextValidation.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>AfterTextValidation.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.618183" elapsed="0.165836"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:10.784019" level="INFO">Clicking button '//button[text() = 'Launch']'.</msg>
+<arg>${Launch_Button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.784019" elapsed="0.069506"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:10.410683" elapsed="0.442842"/>
+</kw>
+<tag>rtcb-launch</tag>
+<tag>rtcb-open-payment-request</tag>
+<tag>test</tag>
+<status status="PASS" start="2024-02-13T00:03:10.405108" elapsed="0.448692"/>
+</test>
+<test id="s1-t2" name="Open Payment Requests" line="24">
+<kw name="Previous Consideration" owner="Keywords" type="SETUP">
+<kw name="Skip If" owner="BuiltIn">
+<arg>'${PREV TEST STATUS}'=='FAIL' or '${PREV TEST STATUS}'=='SKIP'</arg>
+<arg>Previous test has been failed</arg>
+<doc>Skips the rest of the current test if the ``condition`` is True.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.855517" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:10.855377" elapsed="0.000140"/>
+</kw>
+<kw name="Open Payment Requests" owner="Keywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:11.176824" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Output/Screenshots/BeforeOpeningPaymentRequests.png"&gt;&lt;img src="../Output/Screenshots/BeforeOpeningPaymentRequests.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>BeforeOpeningPaymentRequests.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-13T00:03:10.855517" elapsed="0.321307"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${Launch_Link}</arg>
+<arg>timeout=${GlobalTimeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:11.177831" elapsed="7.432647"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:18.640455" level="INFO">Current page contains text 'Real-time Cross-border Payments'.</msg>
+<arg>Real-time Cross-border Payments</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-02-13T00:03:18.610478" elapsed="0.030063"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:18.651096" level="INFO">Current page contains text 'Manage instant payments to and from Absa-verified companies.'.</msg>
+<arg>Manage instant payments to and from Absa-verified companies.</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-02-13T00:03:18.640541" elapsed="0.010555"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:18.666463" level="INFO">Current page contains text 'Requests'.</msg>
+<arg>Requests</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-02-13T00:03:18.651096" elapsed="0.015367"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:18.682209" level="INFO">Current page contains text 'View and submit instant payment requests to Absa-verified companies'.</msg>
+<arg>View and submit instant payment requests to Absa-verified companies</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-02-13T00:03:18.666463" elapsed="0.015746"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:18.682209" level="INFO">Clicking link '//a[text() = 'Launch']'.</msg>
+<arg>${Launch_Link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:18.682209" elapsed="0.113417"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:19.112343" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Output/Screenshots/Payment_Page_AfterLoad.png"&gt;&lt;img src="../Output/Screenshots/Payment_Page_AfterLoad.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>Payment_Page_AfterLoad.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-13T00:03:18.795626" elapsed="0.316717"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:10.855517" elapsed="8.256826"/>
+</kw>
+<tag>rtcb-open-payment-request</tag>
+<tag>test</tag>
+<status status="PASS" start="2024-02-13T00:03:10.853800" elapsed="8.258543"/>
+</test>
+<test id="s1-t3" name="Create Payment Request" line="28">
+<kw name="Previous Consideration" owner="Keywords" type="SETUP">
+<kw name="Skip If" owner="BuiltIn">
+<arg>'${PREV TEST STATUS}'=='FAIL' or '${PREV TEST STATUS}'=='SKIP'</arg>
+<arg>Previous test has been failed</arg>
+<doc>Skips the rest of the current test if the ``condition`` is True.</doc>
+<status status="PASS" start="2024-02-13T00:03:19.112343" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:19.112343" elapsed="0.000000"/>
+</kw>
+<kw name="Create Payment Request" owner="Keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${Create_Request}</arg>
+<arg>timeout=${GlobalTimeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:19.120358" elapsed="0.032100"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:19.180618" level="INFO">Current page contains element '//span[@class = 'jumbo__title']'.</msg>
+<arg>${Main_Title}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:19.153162" elapsed="0.027456"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:19.180618" level="INFO">Clicking element '//a[@href='javascript:void(0)']'.</msg>
+<arg>${refresh_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:19.180618" elapsed="0.843031"/>
+</kw>
+<msg time="2024-02-13T00:03:20.023649" level="INFO">${refresh} = True</msg>
+<var>${refresh}</var>
+<arg>click element</arg>
+<arg>${refresh_button}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-13T00:03:19.180618" elapsed="0.843031"/>
+</kw>
+<if>
+<branch type="IF" condition="'${refresh}'=='True'">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-13T00:03:20.024644" level="INFO">Clicked on refresh button</msg>
+<arg>Clicked on refresh button</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-13T00:03:20.023649" elapsed="0.000995"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:20.023649" elapsed="0.000995"/>
+</branch>
+<status status="PASS" start="2024-02-13T00:03:20.023649" elapsed="0.000995"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-13T00:03:22.025000" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-13T00:03:20.024644" elapsed="2.000356"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:22.050737" level="INFO">Current page contains element '//a[@href='javascript:void(0)']'.</msg>
+<arg>${refresh_button}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.025000" elapsed="0.025737"/>
+</kw>
+<msg time="2024-02-13T00:03:22.050737" level="INFO">${refresh_label} = True</msg>
+<var>${refresh_label}</var>
+<arg>Page should contain element</arg>
+<arg>${refresh_button}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.025000" elapsed="0.025737"/>
+</kw>
+<if>
+<branch type="IF" condition="'${refresh_label}'=='True'">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Refresh button is validated">
+<msg time="2024-02-13T00:03:22.061734" level="FAIL">No keyword with name 'Refresh button is validated' found.</msg>
+<status status="FAIL" start="2024-02-13T00:03:22.061734" elapsed="0.000000">No keyword with name 'Refresh button is validated' found.</status>
+</kw>
+<arg>Refresh button is validated</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.050737" elapsed="0.010997"/>
+</kw>
+<arg>Run keyword and ignore error</arg>
+<arg>Refresh button is validated</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.050737" elapsed="0.010997"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:22.050737" elapsed="0.010997"/>
+</branch>
+<status status="PASS" start="2024-02-13T00:03:22.050737" elapsed="0.010997"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:22.100650" level="INFO">Current page contains element '(//span[@class = 'card-header-label'])[1]'.</msg>
+<arg>${Date_of_request}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.061734" elapsed="0.038916"/>
+</kw>
+<msg time="2024-02-13T00:03:22.100650" level="INFO">${Date_of_request_label} = True</msg>
+<var>${Date_of_request_label}</var>
+<arg>Page should contain element</arg>
+<arg>${Date_of_request}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.061734" elapsed="0.038916"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Date_of_request_label}'=='True'">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Date of request label is validated">
+<msg time="2024-02-13T00:03:22.110771" level="FAIL">No keyword with name 'Date of request label is validated' found.</msg>
+<status status="FAIL" start="2024-02-13T00:03:22.110771" elapsed="0.000000">No keyword with name 'Date of request label is validated' found.</status>
+</kw>
+<arg>Date of request label is validated</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.100650" elapsed="0.010121"/>
+</kw>
+<arg>Run keyword and ignore error</arg>
+<arg>Date of request label is validated</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.100650" elapsed="0.010121"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:22.100650" elapsed="0.010121"/>
+</branch>
+<status status="PASS" start="2024-02-13T00:03:22.100650" elapsed="0.010121"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:22.145461" level="INFO">Current page contains element '(//span[@class = 'card-header-label'])[2]'.</msg>
+<arg>${request_to}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.113184" elapsed="0.032277"/>
+</kw>
+<msg time="2024-02-13T00:03:22.145461" level="INFO">${request_to_label} = True</msg>
+<var>${request_to_label}</var>
+<arg>Page should contain element</arg>
+<arg>${request_to}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.113184" elapsed="0.032277"/>
+</kw>
+<if>
+<branch type="IF" condition="'${request_to_label}'=='True'">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Request to label is validated">
+<msg time="2024-02-13T00:03:22.156962" level="FAIL">No keyword with name 'Request to label is validated' found.</msg>
+<status status="FAIL" start="2024-02-13T00:03:22.156962" elapsed="0.000000">No keyword with name 'Request to label is validated' found.</status>
+</kw>
+<arg>Request to label is validated</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.150602" elapsed="0.006360"/>
+</kw>
+<arg>Run keyword and ignore error</arg>
+<arg>Request to label is validated</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.150481" elapsed="0.006481"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:22.145461" elapsed="0.011501"/>
+</branch>
+<status status="PASS" start="2024-02-13T00:03:22.145461" elapsed="0.011501"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:22.190421" level="INFO">Current page contains element '(//span[@class = 'card-header-label'])[3]'.</msg>
+<arg>${Request_amount}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.160475" elapsed="0.029946"/>
+</kw>
+<msg time="2024-02-13T00:03:22.190421" level="INFO">${Request_amount_label} = True</msg>
+<var>${Request_amount_label}</var>
+<arg>Page should contain element</arg>
+<arg>${Request_amount}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.156962" elapsed="0.033459"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Request_amount_label}'=='True'">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Request amount label is validated">
+<msg time="2024-02-13T00:03:22.204630" level="FAIL">No keyword with name 'Request amount label is validated' found.</msg>
+<status status="FAIL" start="2024-02-13T00:03:22.204630" elapsed="0.000000">No keyword with name 'Request amount label is validated' found.</status>
+</kw>
+<arg>Request amount label is validated</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.190421" elapsed="0.014209"/>
+</kw>
+<arg>Run keyword and ignore error</arg>
+<arg>Request amount label is validated</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.190421" elapsed="0.014209"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:22.190421" elapsed="0.014209"/>
+</branch>
+<status status="PASS" start="2024-02-13T00:03:22.190421" elapsed="0.014209"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:22.240815" level="INFO">Current page contains element '(//span[@class = 'card-header-label'])[4]'.</msg>
+<arg>${Payment_Due}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.210644" elapsed="0.030171"/>
+</kw>
+<msg time="2024-02-13T00:03:22.240815" level="INFO">${Payment_Due_label} = True</msg>
+<var>${Payment_Due_label}</var>
+<arg>Page should contain element</arg>
+<arg>${Payment_Due}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.210644" elapsed="0.030171"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Payment_Due_label}'=='True'">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Payment Due label is validated">
+<msg time="2024-02-13T00:03:22.251514" level="FAIL">No keyword with name 'Payment Due label is validated' found.</msg>
+<status status="FAIL" start="2024-02-13T00:03:22.251514" elapsed="0.000000">No keyword with name 'Payment Due label is validated' found.</status>
+</kw>
+<arg>Payment Due label is validated</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.240815" elapsed="0.010699"/>
+</kw>
+<arg>Run keyword and ignore error</arg>
+<arg>Payment Due label is validated</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.240815" elapsed="0.010699"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:22.240815" elapsed="0.010699"/>
+</branch>
+<status status="PASS" start="2024-02-13T00:03:22.240815" elapsed="0.010699"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:22.290631" level="INFO">Current page contains element '(//span[@class = 'card-header-label'])[5]'.</msg>
+<arg>${Payment_Status}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.251514" elapsed="0.039117"/>
+</kw>
+<msg time="2024-02-13T00:03:22.290631" level="INFO">${Payment_Status_Label} = True</msg>
+<var>${Payment_Status_Label}</var>
+<arg>Page should contain element</arg>
+<arg>${Payment_Status}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.251514" elapsed="0.039117"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Payment_Status_Label}'=='True'">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Payment Status label is validated">
+<msg time="2024-02-13T00:03:22.305743" level="FAIL">No keyword with name 'Payment Status label is validated' found.</msg>
+<status status="FAIL" start="2024-02-13T00:03:22.305743" elapsed="0.000000">No keyword with name 'Payment Status label is validated' found.</status>
+</kw>
+<arg>Payment Status label is validated</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.290631" elapsed="0.015112"/>
+</kw>
+<arg>Run keyword and ignore error</arg>
+<arg>Payment Status label is validated</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.290631" elapsed="0.015112"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:22.290631" elapsed="0.015112"/>
+</branch>
+<status status="PASS" start="2024-02-13T00:03:22.290631" elapsed="0.015112"/>
+</if>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:22.340805" level="INFO">Current page contains element '(//i[@class = 'ico-sort'])[1]'.</msg>
+<arg>${sort_button}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.305743" elapsed="0.035062"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-02-13T00:03:22.340805" level="INFO">Sort Button on "date of request" is validated</msg>
+<arg>Sort Button on "date of request" is validated</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.340805" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:22.346271" level="INFO">Clicking button '//button[@class = 'btn btn-primary']'.</msg>
+<arg>${Create_Request}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.340805" elapsed="0.214342"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:22.563485" level="INFO">Current page does not contain element '//div[contains(@class, 'solar-loader')]'.</msg>
+<arg>${Spinner}</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.555147" elapsed="0.008338"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:19.120358" elapsed="3.443127"/>
+</kw>
+<kw name="Insert Payment Details" owner="Keywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:22.680583" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Output/Screenshots/Payment_Blank_page.png"&gt;&lt;img src="../Output/Screenshots/Payment_Blank_page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>Payment_Blank_page.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.563485" elapsed="0.117098"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${Currency_Amount}</arg>
+<arg>timeout=${GlobalTimeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.680583" elapsed="0.011827"/>
+</kw>
+<kw name="Wait for page to be loaded" owner="Keywords">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-13T00:03:32.692788" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-13T00:03:22.692410" elapsed="10.000378"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:22.692410" elapsed="10.000378"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Disabled" owner="SeleniumLibrary">
+<arg>${Country_Disable}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="PASS" start="2024-02-13T00:03:32.692788" elapsed="0.057677"/>
+</kw>
+<msg time="2024-02-13T00:03:32.750465" level="INFO">${Country_Button_status} = True</msg>
+<var>${Country_Button_status}</var>
+<arg>Element should be disabled</arg>
+<arg>${Country_Disable}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-13T00:03:32.692788" elapsed="0.057677"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${Country_Button_status}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-02-13T00:03:32.750465" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:32.750465" level="INFO">Clicking element '(//span[@class ='ng-arrow-wrapper'])[2]'.</msg>
+<arg>${Select_Company}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:32.750465" elapsed="0.142906"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:32.897555" level="INFO">Verifying element '//label[text() = 'ABSA verified company']' contains exact text 'ABSA verified company'.</msg>
+<arg>${Company_Label_Name}</arg>
+<arg>${company_label}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-02-13T00:03:32.893371" elapsed="0.047265"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:32.940636" level="INFO">Clicking element '//span[text() ='A&amp;K GLOBAL HEALTH KENYA LIMITED']'.</msg>
+<arg>${Company_name_Selector}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:32.940636" elapsed="0.089905"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:33.061821" level="INFO">Current page contains text 'A&amp;K GLOBAL HEALTH KENYA LIMITED'.</msg>
+<arg>${Company_Name}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.030541" elapsed="0.031280"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Disabled" owner="SeleniumLibrary">
+<arg>${Currency_Disable}</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.061821" elapsed="0.029714"/>
+</kw>
+<msg time="2024-02-13T00:03:33.091535" level="INFO">${Currency_Button_status} = True</msg>
+<var>${Currency_Button_status}</var>
+<arg>Element should be disabled</arg>
+<arg>${Currency_Disable}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.061821" elapsed="0.029714"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${Currency_Button_status}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.091535" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:33.098604" level="INFO">Typing text '12345' into text field '//input[@name ='currencyAmount']'.</msg>
+<arg>${Currency_Amount}</arg>
+<arg>${Amount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.091535" elapsed="0.115362"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Get Value" owner="SeleniumLibrary">
+<arg>${Currency_Amount}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.206897" elapsed="0.023292"/>
+</kw>
+<msg time="2024-02-13T00:03:33.230630" level="INFO">${Entered_Amount} = 12345</msg>
+<var>${Entered_Amount}</var>
+<arg>Get Value</arg>
+<arg>${Currency_Amount}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.206897" elapsed="0.023733"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${Entered_Amount}</arg>
+<arg>${Amount}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.230630" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${Preffered_Payment_Account}</arg>
+<arg>timeout=${GlobalTimeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.230630" elapsed="0.009894"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:33.240524" level="INFO">Clicking element '(//span[@class ='ng-arrow-wrapper'])[4]'.</msg>
+<arg>${Preffered_Payment_Account}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.240524" elapsed="0.046374"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:33.286898" level="INFO">Clicking element '//div[text() = ' KELLY MARINE CC ZAR 4044179534 ']'.</msg>
+<arg>${Select_Payment_Account}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.286898" elapsed="0.073525"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:33.362269" level="INFO">Typing text '2024-02-29' into text field '//input[@id = 'dueDate']'.</msg>
+<arg>${Input_Date}</arg>
+<arg>${Expected_Payment_Date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.360423" elapsed="0.113002"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Get Value" owner="SeleniumLibrary">
+<arg>${Input_Date}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.473425" elapsed="0.011971"/>
+</kw>
+<msg time="2024-02-13T00:03:33.485396" level="INFO">${Date_store} = 2024-02-29</msg>
+<var>${Date_store}</var>
+<arg>Get Value</arg>
+<arg>${Input_Date}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.473425" elapsed="0.011971"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${Date_store}</arg>
+<arg>${Expected_Payment_Date}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.485396" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:33.620775" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Output/Screenshots/Filled_Payment_Details.png"&gt;&lt;img src="../Output/Screenshots/Filled_Payment_Details.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>Filled_Payment_Details.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.485396" elapsed="0.135379"/>
+</kw>
+<kw name="Wait for page to be loaded" owner="Keywords">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-13T00:03:43.621314" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-13T00:03:33.620775" elapsed="10.000539"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:33.620775" elapsed="10.000539"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:43.622507" level="INFO">Clicking button '//button[@class='footer-primary btn btn-primary']'.</msg>
+<arg>${Continue_Payment_Details}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-13T00:03:43.622507" elapsed="0.201052"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${Select_Category}</arg>
+<arg>timeout=${GlobalTimeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-02-13T00:03:43.827523" elapsed="0.043048"/>
+</kw>
+<kw name="Wait for page to be loaded" owner="Keywords">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-13T00:03:53.871025" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-13T00:03:43.870571" elapsed="10.001593"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:43.870571" elapsed="10.001593"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:54.225826" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Output/Screenshots/selenium-screenshot-1.png"&gt;&lt;img src="../Output/Screenshots/selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-02-13T00:03:54.225826" level="FAIL">Page should have contained element '//button[text() = 'Cancel']' but did not.</msg>
+<arg>${Cancel}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="FAIL" start="2024-02-13T00:03:53.873180" elapsed="0.365843">Page should have contained element '//button[text() = 'Cancel']' but did not.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${Select_Category}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-02-13T00:03:54.240535" elapsed="0.000000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>Entered_Details.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2024-02-13T00:03:54.240535" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-02-13T00:03:22.563485" elapsed="31.677050">Page should have contained element '//button[text() = 'Cancel']' but did not.</status>
+</kw>
+<tag>rtcb-create-payment-request</tag>
+<tag>test</tag>
+<status status="FAIL" start="2024-02-13T00:03:19.112343" elapsed="35.128192">Page should have contained element '//button[text() = 'Cancel']' but did not.</status>
+</test>
+<test id="s1-t4" name="Select Purpose of Payment" line="33">
+<kw name="Previous Consideration" owner="Keywords" type="SETUP">
+<kw name="Skip If" owner="BuiltIn">
+<msg time="2024-02-13T00:03:54.242710" level="SKIP">Previous test has been failed</msg>
+<arg>'${PREV TEST STATUS}'=='FAIL' or '${PREV TEST STATUS}'=='SKIP'</arg>
+<arg>Previous test has been failed</arg>
+<doc>Skips the rest of the current test if the ``condition`` is True.</doc>
+<status status="SKIP" start="2024-02-13T00:03:54.242710" elapsed="0.000000">Previous test has been failed</status>
+</kw>
+<status status="SKIP" start="2024-02-13T00:03:54.242710" elapsed="0.000000">Previous test has been failed</status>
+</kw>
+<tag>rtcb-purpose-of-payment</tag>
+<status status="SKIP" start="2024-02-13T00:03:54.241584" elapsed="0.002168">Previous test has been failed</status>
+</test>
+<test id="s1-t5" name="Payment reference Document Upload" line="37">
+<kw name="Previous Consideration" owner="Keywords" type="SETUP">
+<kw name="Skip If" owner="BuiltIn">
+<msg time="2024-02-13T00:03:54.244143" level="SKIP">Previous test has been failed</msg>
+<arg>'${PREV TEST STATUS}'=='FAIL' or '${PREV TEST STATUS}'=='SKIP'</arg>
+<arg>Previous test has been failed</arg>
+<doc>Skips the rest of the current test if the ``condition`` is True.</doc>
+<status status="SKIP" start="2024-02-13T00:03:54.244143" elapsed="0.000000">Previous test has been failed</status>
+</kw>
+<status status="SKIP" start="2024-02-13T00:03:54.244143" elapsed="0.000000">Previous test has been failed</status>
+</kw>
+<tag>Payment reference Document Upload</tag>
+<status status="SKIP" start="2024-02-13T00:03:54.244143" elapsed="0.000000">Previous test has been failed</status>
+</test>
+<test id="s1-t6" name="Payment Request Review #TC_358277" line="41">
+<kw name="Previous Consideration" owner="Keywords" type="SETUP">
+<kw name="Skip If" owner="BuiltIn">
+<msg time="2024-02-13T00:03:54.250653" level="SKIP">Previous test has been failed</msg>
+<arg>'${PREV TEST STATUS}'=='FAIL' or '${PREV TEST STATUS}'=='SKIP'</arg>
+<arg>Previous test has been failed</arg>
+<doc>Skips the rest of the current test if the ``condition`` is True.</doc>
+<status status="SKIP" start="2024-02-13T00:03:54.250653" elapsed="0.000000">Previous test has been failed</status>
+</kw>
+<status status="SKIP" start="2024-02-13T00:03:54.250653" elapsed="0.000000">Previous test has been failed</status>
+</kw>
+<tag>Payment Request Review</tag>
+<status status="SKIP" start="2024-02-13T00:03:54.244143" elapsed="0.006510">Previous test has been failed</status>
+</test>
+<test id="s1-t7" name="Payment Request Summary #TC_358279" line="45">
+<kw name="Previous Consideration" owner="Keywords" type="SETUP">
+<kw name="Skip If" owner="BuiltIn">
+<msg time="2024-02-13T00:03:54.258981" level="SKIP">Previous test has been failed</msg>
+<arg>'${PREV TEST STATUS}'=='FAIL' or '${PREV TEST STATUS}'=='SKIP'</arg>
+<arg>Previous test has been failed</arg>
+<doc>Skips the rest of the current test if the ``condition`` is True.</doc>
+<status status="SKIP" start="2024-02-13T00:03:54.258981" elapsed="0.000000">Previous test has been failed</status>
+</kw>
+<status status="SKIP" start="2024-02-13T00:03:54.257977" elapsed="0.001004">Previous test has been failed</status>
+</kw>
+<tag>rtcb-Payment Request Summary</tag>
+<status status="SKIP" start="2024-02-13T00:03:54.250653" elapsed="0.008328">Previous test has been failed</status>
+</test>
+<kw name="Suite Teardown" owner="Keywords" type="TEARDOWN">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-13T00:03:54.264891" level="INFO">Clicking element '//i[@class = 'masthead__icon ico icon-log-out']'.</msg>
+<msg time="2024-02-13T00:03:56.709863" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Output/Screenshots/selenium-screenshot-2.png"&gt;&lt;img src="../Output/Screenshots/selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-02-13T00:03:56.710995" level="FAIL">StaleElementReferenceException: Message: stale element reference: stale element not found
+  (Session info: chrome=121.0.6167.161); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF6190D5E42+3538674]
+	(No symbol) [0x00007FF618CF4C02]
+	(No symbol) [0x00007FF618BA5AEB]
+	(No symbol) [0x00007FF618BB514B]
+	(No symbol) [0x00007FF618BAB92A]
+	(No symbol) [0x00007FF618BA9D10]
+	(No symbol) [0x00007FF618BAD150]
+	(No symbol) [0x00007FF618BAD210]
+	(No symbol) [0x00007FF618BEDED5]
+	(No symbol) [0x00007FF618BE16D6]
+	(No symbol) [0x00007FF618C0F0AA]
+	(No symbol) [0x00007FF618BE124A]
+	(No symbol) [0x00007FF618C0F2C0]
+	(No symbol) [0x00007FF618C2BDE3]
+	(No symbol) [0x00007FF618C0EE53]
+	(No symbol) [0x00007FF618BDF514]
+	(No symbol) [0x00007FF618BE0631]
+	GetHandleVerifier [0x00007FF619106CAD+3738973]
+	GetHandleVerifier [0x00007FF61915C506+4089270]
+	GetHandleVerifier [0x00007FF619154823+4057299]
+	GetHandleVerifier [0x00007FF618E25C49+720121]
+	(No symbol) [0x00007FF618D0126F]
+	(No symbol) [0x00007FF618CFC304]
+	(No symbol) [0x00007FF618CFC432]
+	(No symbol) [0x00007FF618CEBD04]
+	BaseThreadInitThunk [0x00007FF8D99E257D+29]
+	RtlUserThreadStart [0x00007FF8DA96AA58+40]
+</msg>
+<arg>${Logout_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-02-13T00:03:54.264101" elapsed="2.453100">StaleElementReferenceException: Message: stale element reference: stale element not found
+  (Session info: chrome=121.0.6167.161); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF6190D5E42+3538674]
+	(No symbol) [0x00007FF618CF4C02]
+	(No symbol) [0x00007FF618BA5AEB]
+	(No symbol) [0x00007FF618BB514B]
+	(No symbol) [0x00007FF618BAB92A]
+	(No symbol) [0x00007FF618BA9D10]
+	(No symbol) [0x00007FF618BAD150]
+	(No symbol) [0x00007FF618BAD210]
+	(No symbol) [0x00007FF618BEDED5]
+	(No symbol) [0x00007FF618BE16D6]
+	(No symbol) [0x00007FF618C0F0AA]
+	(No symbol) [0x00007FF618BE124A]
+	(No symbol) [0x00007FF618C0F2C0]
+	(No symbol) [0x00007FF618C2BDE3]
+	(No symbol) [0x00007FF618C0EE53]
+	(No symbol) [0x00007FF618BDF514]
+	(No symbol) [0x00007FF618BE0631]
+	GetHandleVerifier [0x00007FF619106CAD+3738973]
+	GetHandleVerifier [0x00007FF61915C506+4089270]
+	GetHandleVerifier [0x00007FF619154823+4057299]
+	GetHandleVerifier [0x00007FF618E25C49+720121]
+	(No symbol) [0x00007FF618D0126F]
+	(No symbol) [0x00007FF618CFC304]
+	(No symbol) [0x00007FF618CFC432]
+	(No symbol) [0x00007FF618CEBD04]
+	BaseThreadInitThunk [0x00007FF8D99E257D+29]
+	RtlUserThreadStart [0x00007FF8DA96AA58+40]
+</status>
+</kw>
+<arg>Click Element</arg>
+<arg>${Logout_Button}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-02-13T00:03:54.263619" elapsed="2.453582"/>
+</kw>
+<arg>Run Keyword And Ignore Error</arg>
+<arg>Click Element</arg>
+<arg>${Logout_Button}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-02-13T00:03:54.262613" elapsed="2.454588"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-02-13T00:04:01.718560" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-02-13T00:03:56.718218" elapsed="5.000342"/>
+</kw>
+<status status="PASS" start="2024-02-13T00:03:54.262613" elapsed="7.455947"/>
+</kw>
+<status status="FAIL" start="2024-02-13T00:02:48.830701" elapsed="72.887859"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="1" skip="4">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="0" skip="1">Payment reference Document Upload</stat>
+<stat pass="0" fail="0" skip="1">Payment Request Review</stat>
+<stat pass="0" fail="1" skip="0">rtcb-create-payment-request</stat>
+<stat pass="1" fail="0" skip="0">rtcb-launch</stat>
+<stat pass="2" fail="0" skip="0">rtcb-open-payment-request</stat>
+<stat pass="0" fail="0" skip="1">rtcb-Payment Request Summary</stat>
+<stat pass="0" fail="0" skip="1">rtcb-purpose-of-payment</stat>
+<stat pass="2" fail="1" skip="0">test</stat>
+</tag>
+<suite>
+<stat pass="2" fail="1" skip="4" id="s1" name="Create Payment Request">Create Payment Request</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-02-13T00:02:49.050839" level="ERROR">Error in file 'D:\RepoDATA\SurendarWork\Resources\Keywords.robot' on line 2: Library '..\..\venv\Lib\site-packages\SeleniumLibrary\__init__.py' does not exist.</msg>
+</errors>
+</robot>
